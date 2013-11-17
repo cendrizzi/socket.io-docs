@@ -114,7 +114,8 @@ Socket the the client uses to communicate to the socket.io server instance. Rare
 	- `resource`: The url resource that it connects to. Default is 'socket.io'. You should not change this unless you really know what you are doing.
 	- `transports`: Array of strings for the avaialable transports
 	- `connect timeout`: How long in ms until it gives up connecting with a transport. Default: 10000 (ms)
-	- `try multiple transports`: Boolean for whether it will attempt to try more than one 	- `reconnect`: Whether it will attempt to reconnect after being disconnected. Default: true,
+	- `try multiple transports`: Boolean for whether it will attempt to try more than one 	
+	- `reconnect`: Whether it will attempt to reconnect after being disconnected. Default: true,
 	- `reconnection delay`: The starting delay for reconnecting. Socket.IO will exponentially increase the day for reconnecting after each failed attempt. Default: 500 (ms)
 	- `reconnection limit`: How many times it will exponentially adjust the reconnection delay. Default: Infinity (ecmascript static value).
 	- `max reconnection attempts`: How many times it will try to reconnect. Default: 10
