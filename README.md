@@ -151,7 +151,7 @@ Socket the the client uses to communicate to the socket.io server instance. Rare
 
 #### Top-Level
 
-These are exposed by `require('socket.io-client')`
+These are exposed by `require('socket.io')`
 
 ##### Properties
 
