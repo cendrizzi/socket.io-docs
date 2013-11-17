@@ -144,3 +144,49 @@ Socket the the client uses to communicate to the socket.io server instance. Rare
 - `disconnect`
     - Disconnects the current connected transport
     - **Returns** `Socket` for chaining
+    
+### Server Side
+
+<hr><br>
+
+#### Manager
+
+These are exposed by `require('socket.io-client')`
+
+##### Properties
+
+- `version` _(String)_ defined the socket.io version
+- `protocol` _(Number)_: defined the protocol supported
+- `clientVersion` _(String)_: the client version served
+- `Manager` _(Object)_: manager constructor (which is returned by listen)
+- `Transport` _(Object)_: transport constructor
+- `Socket` _(Object)_: socket constructor
+- `Static` _(Object)_: static constructor
+- `Store` _(Object)_: generic store constructor
+- `MemoryStore` _(Object)_: memory store constructor (single isntance only)
+- `RedisStore`: _(Object)_: redis store constructor (used for horizontally scaling)
+- `parser` _(Function)_: internal object for encoding data. Defined in parser.js
+
+##### Methods
+
+- `listen`
+    - Creates or piggy backs an an existing http server to handle socket.io events
+    - **Parameters**
+      - `Server`: An HTTPServer instance or a port to create a new instance using
+      - `Options`: A JSON object of options for the manager (see manager docs for list and description)
+      - `Callback`: A function that is called after the server instance is started (only valid if you passed a number for Server param)
+    - **Returns** `Manager Instance`
+
+<hr><br>
+
+#### Top-level
+
+Created and returned by the listen method of the top level object
+
+##### Properties
+
+##### Methods
+
+##### Events
+
+<hr><br>
