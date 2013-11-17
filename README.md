@@ -1,6 +1,6 @@
-## Client Side Socket.IO API
+## Socket.IO API
 
-### Client
+### Client Side
 
 <hr><br>
 
