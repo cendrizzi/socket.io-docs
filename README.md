@@ -1,4 +1,4 @@
-## API
+## Client Side Socket.IO API
 
 ### Client
 
