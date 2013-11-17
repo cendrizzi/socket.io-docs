@@ -149,7 +149,7 @@ Socket the the client uses to communicate to the socket.io server instance. Rare
 
 <hr><br>
 
-#### Manager
+#### Top-Level
 
 These are exposed by `require('socket.io-client')`
 
@@ -179,7 +179,7 @@ These are exposed by `require('socket.io-client')`
 
 <hr><br>
 
-#### Top-level
+#### Manager
 
 Created and returned by the listen method of the top level object
 
