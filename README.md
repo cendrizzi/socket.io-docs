@@ -21,7 +21,6 @@ These are exposed by `require('socket.io-client')` or is defined as `io` in a br
 - `EventEmitter` _(Object)_: internal event utilities object. Defined in _events.js_
 - `SocketNamespace`: _(Function)_: Internal function for namespacing different sockets. Defined in _namespace.js_
 - `Transport` _(Function)_: Internal function for shared features among transports. Defined in _namespace.js_
-- `Builder` _(Function)_: Internal builder function. Defined in _builder.js_
 
 ##### Methods
 
@@ -116,7 +115,7 @@ Socket the the client uses to communicate to the socket.io server instance. Rare
 	- `transports`: Array of strings for the avaialable transports
 	- `connect timeout`: How long in ms until it gives up connecting with a transport. Default: 10000 (ms)
 	- `try multiple transports`: Boolean for whether it will attempt to try more than one 	- `reconnect`: Whether it will attempt to reconnect after being disconnected. Default: true,
-	- `reconnection delay`: The starting delay for reconnecting. Socket.IO will exponentially increase this after each failed attempt. Default: 500 (ms)
+	- `reconnection delay`: The starting delay for reconnecting. Socket.IO will exponentially increase the day for reconnecting after each failed attempt. Default: 500 (ms)
 	- `reconnection limit`: How many times it will exponentially adjust the reconnection delay. Default: Infinity (ecmascript static value).
 	- `max reconnection attempts`: How many times it will try to reconnect. Default: 10
 	- `sync disconnect on unload`: Will attempt to synchronize the disconnect before disconnecting. Default: false
