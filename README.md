@@ -1,4 +1,4 @@
-## CLIENT SIDE API
+## API
 
 ### Client
 
@@ -6,7 +6,7 @@
 
 #### Top-level
 
-These are exposed by `require('socket.io-client')`:
+These are exposed by `require('socket.io-client')` or is defined as `io` in a browser:
 
 ##### Properties
 
@@ -103,7 +103,7 @@ Object returned from from connect. This object is where you setup socket.io even
 
 #### Socket
 
-Socket the the client uses to communicate to the socket.io server instance. Rarely will you want to work directly with this object but instead use the client library. Exceptions to this are forcing a disconnect (client.socket.disconnect()), etc . _Inherits from EventEmitter_.
+Socket the the client uses to communicate to the socket.io server instance. Rarely will you want to work directly with this object but instead use the client instance. Exceptions to this are forcing a disconnect (client.socket.disconnect()), etc . _Inherits from EventEmitter_.
 
 ##### Properties
 
