@@ -18,7 +18,7 @@ These are exposed by `require('socket.io-client')` or is defined as `io` in a br
 - `util` _(Object)_: internal utility functions for inheritance and more. Defined in _util.js_
 - `JSON` _(Object)_: internal json utilities based on JSON2.js. Defined in _json.js_
 - `parser` _(Object)_: internal object for encoding data. Defined in _parser.js_
-- `EventEmitter` _(Object)_: internal event utilities object. Defined in _events.js_
+- `EventEmitter` _(Object)_: EventEmitter Constructor. Defined in _events.js_
 - `SocketNamespace`: _(Function)_: Internal function for namespacing different sockets. Defined in _namespace.js_
 - `Transport` _(Function)_: Internal function for shared features among transports. Defined in _namespace.js_
 
@@ -181,12 +181,47 @@ These are exposed by `require('socket.io')`
 
 #### Manager
 
-Created and returned by the listen method of the top level object
+Created and returned by the listen method of the top level object.
 
 ##### Properties
 
+
 ##### Methods
 
+##### Events
+
+<hr><br>
+
+#### Socket
+
+Socket is the objects that allows you to setup events and emit events back to the client. You get a socket instance from the Managers connection event.
+
+##### Properties
+- `json` : Special 
+- `broadcast`: Special property that when used prior to an emit will broadcast event to everyone except the socket that originates the event.
+- `volatile`: Special property that when included prior to an emit will cause the emit to be volatile. Volatile messages are not assured to get to the client as a normal emit is.
+
+
+##### Methods
+- `in`
+    - Puts socket.io into a specific room namespace
+    - **Parameters**
+      - `Room`: A strong for the user name you would like to use
+    - **Returns** `Socket Instance in specified namespace`
+- `emit`
+	- Fires off a new event message
+	- **Parameters**
+		- `Name`: _(String)_ 
+		- `args`: An arbritrary number of arguments can be added that will be given on the received end.
+		- `acknowledgement`: _(function)_ A function at the end of the parameters will be treated an acknowledgement function. It will be called if the receiving end responds 
+	- **Returns** `packet`
+- `send`
+	- Fires off a simple message that can be heard on the other end by listening the the _message_ event.
+	- **Parameters**
+		- `data`: _(anything)_ data you want to send
+		- `acknowledgement` _(function)_ An acknowledgment function that will be called if the receiving end responds 
+	- **Returns** `packet`
+		
 ##### Events
 
 <hr><br>
