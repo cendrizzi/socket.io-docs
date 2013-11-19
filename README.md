@@ -147,6 +147,16 @@ Socket the the client uses to communicate to the socket.io server instance. Rare
     
 ### Server Side
 
+	var server = http.createServer(app); // Create server (app assumes express instance)
+	
+	// Top Level Object
+	var topLevel = require('socket.io'); 
+	
+	// Manager instance, usually combines with the call above
+	var io = io.listen(server, {
+   		origins: '*:*'
+	}); 
+
 <hr><br>
 
 #### Top-Level
@@ -183,12 +193,86 @@ These are exposed by `require('socket.io')`
 
 Created and returned by the listen method of the top level object.
 
+It accepts the following options (pass to the connect method of the top level object):
+- origins: '*:*'
+- log: true
+- store: new MemoryStore
+- logger: new Logger
+- static: new Static(this)
+- heartbeats: true
+- resource: '/socket.io'
+- transports: defaultTransports
+- authorization: false
+- blacklist: ['disconnect']
+- 'log level': 3
+- 'log colors': tty.isatty(process.stdout.fd)
+- 'close timeout': 60
+- 'heartbeat interval': 25
+- 'heartbeat timeout': 60
+- 'polling duration': 20
+- 'flash policy server': true
+- 'flash policy port': 10843
+- 'destroy upgrade': true
+- 'destroy buffer size': 10E7
+- 'browser client': true
+- 'browser client cache': true
+- 'browser client minification': false
+- 'browser client etag': false
+- 'browser client expires': 315360000
+- 'browser client gzip': false
+- 'browser client handler': false
+- 'client store expiration': 15
+- 'match origin protocol': false
+
 ##### Properties
+
+- `store` _(Store Instance)_ Returns the store in use (use to get only)
+- `log` _(Logger Instance)_ Instance of logger (use to get only)
+- `static` _(Static Instance)_ Instance of static (use to get only)
 
 
 ##### Methods
+- `get`
+	- Used to get a setting/option using the provided key
+	- **Parameters**
+		- `key`: _(String)_ 
+	- **Returns** `value for options using provided key
+- `set`
+	- Used to set a setting/option
+	- **Parameters**
+		- `key`: _(String)_ 
+		- `value`: _(Any)_
+	- **Returns** Manger Instance for chaining
+- `enable`
+	- Enables (sets to true) the settings/option using the provided key
+	- **Parameters**
+		- `key`: _(String)_ 
+	- **Returns** Manger Instance for chaining
+- `disable`
+	- Disables (sets to false) the settings/option using the provided key
+	- **Parameters**
+		- `key`: _(String)_ 
+	- **Returns** Manger Instance for chaining
+- `enabled`
+	- Checks whether the setting/option is enabled (equals true) using the provided key
+	- **Parameters**
+		- `key`: _(String)_ 
+	- **Returns** _(Boolean)_
+- `disable`
+	- Checks whether the setting/option is disabled (equals false) using the provided key
+	- **Parameters**
+		- `key`: _(String)_ 
+	- **Returns** _(Boolean)_
+- `configure`
+	- Used to configure settings based on the environment (NODE_ENV). If it provided environment is true then it calls the provided callback.
+	- **Parameters**
+		- `env`: _(String)_ Name of environment
+		- `fn`: _(Function)_ Callback if the environment is considered true
+	- **Returns** Manger Instance for chaining
 
 ##### Events
+- `connect`
+    - Called when a socket is connected
 
 <hr><br>
 
